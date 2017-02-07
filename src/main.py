@@ -1,7 +1,9 @@
 import link_bfs
-links_on_page = {}
+import wikipedia
+mapping = {}
 num = int(input("Enter the number of links or clicks you want to make?"))
 
 for i in range(num):
-    source = input("Enter your wikipedia url: ")
-    print(link_bfs.wikipedia_bfs(source, "http://en.wikipedia.org/wiki/Adolf_Hitler", links_on_page))
+    source = input("Enter your wikipedia article/page title: ")
+    source=wikipedia.page(source)
+    print(link_bfs.wikipedia_bfs(source.url, "http://en.wikipedia.org/wiki/Adolf_Hitler", mapping))
